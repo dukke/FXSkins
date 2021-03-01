@@ -1,0 +1,133 @@
+plugins {
+    id "com.jfrog.bintray" version "1.8.4"
+    id "java-library"
+    id "maven-publish"
+    id 'org.openjfx.javafxplugin' version '0.0.8'
+}
+
+sourceCompatibility = JavaVersion.VERSION_11
+
+version = '1.0'
+def versionDescription = 'FXSkins'
+
+javafx {
+    version = "11.0.2"
+    modules = [ 'javafx.controls' ]
+}
+
+[compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
+
+dependencies {
+    implementation 'org.controlsfx:controlsfx:11.0.0'
+}
+
+repositories {
+    mavenCentral()
+}
+
+jar {
+    manifest {
+        attributes( 'Implementation-Title': project.name,
+                'Implementation-Version': project.version)
+    }
+}
+
+task javadocJar(type: Jar) {
+    classifier = 'javadoc'
+    from javadoc
+}
+
+javadoc {
+    options.addStringOption('javafx', '-quiet')
+}
+
+task sourceJar(type: Jar) {
+    from sourceSets.main.allJava
+    classifier "sources"
+}
+
+artifacts {
+    archives sourceJar
+    archives javadocJar
+}
+
+/* Publishing */
+/* - for publishing to maven central need to define MAVEN_USERNAME and MAVEN_PASSWORD as environment variables */
+bintray {
+    user = System.getenv('BINTRAY_USER')
+    key = System.getenv('BINTRAY_KEY')
+    pkg {
+        repo = 'maven'
+        name = project.name
+        //userOrg = 'dukke'
+        licenses = ['BSD New']
+        vcsUrl = 'https://github.com/JFXtras/jfxtras-styles.git'
+        publications = ['mavenJava']
+        websiteUrl = 'https://www.pixelduke.com/jmetro'
+        issueTrackerUrl = 'https://github.com/JFXtras/jfxtras-styles/issues'
+        publicDownloadNumbers = true
+        version {
+            name = project.version
+            desc = versionDescription // Version description
+            vcsTag = project.version
+            mavenCentralSync {
+                sync = true
+                user = System.getenv('MAVEN_USERNAME')
+                password = System.getenv('MAVEN_PASSWORD')
+            }
+        }
+    }
+}
+
+def pomConfig = {
+    packaging 'jar'
+    name project.name
+    url 'https://www.pixelduke.com/jmetro'
+    inceptionYear '2012'
+    licenses {
+        license([:]) {
+            name 'BSD New'
+            url 'https://opensource.org/licenses/BSD-3-Clause'
+            distribution 'repo'
+        }
+    }
+    scm {
+        url 'https://github.com/JFXtras/jfxtras-styles.git'
+    }
+    developers {
+        [
+                dukke: 'Pedro Duque Vieira',
+        ].each { devId, devName ->
+            developer {
+                id devId
+                name devName
+                roles {
+                    role 'Developer'
+                }
+            }
+        }
+    }
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+            artifact sourceJar {
+                classifier "sources"
+            }
+            artifact javadocJar {
+                classifier "javadoc"
+            }
+
+            pom.withXml {
+                asNode().children().last() + pomConfig
+                asNode().appendNode('description', "A theme / look and feel for JavaFX inspired by Microsoft's Fluent Design (previously named Metro)")
+            }
+        }
+    }
+}
+
+
+
+

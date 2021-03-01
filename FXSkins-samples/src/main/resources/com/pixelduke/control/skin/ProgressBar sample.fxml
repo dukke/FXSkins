@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<!--
+ * FXSkins,
+ * Copyright (C) 2021 PixelDuke (Pedro Duque Vieira - www.pixelduke.com)
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  -->
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="281.0" prefWidth="375.0" styleClass="background" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pixelduke.control.skin.controllers.ProgressBarController">
+    <Label layoutX="31.0" layoutY="17.5" styleClass="header" text="Progress Bar">
+      <font>
+         <Font size="30.0" />
+      </font></Label>
+   <VBox layoutX="31.0" layoutY="104.0" prefHeight="145.0" prefWidth="226.0" spacing="20.0">
+      <children>
+         <Label text="FXSkins">
+            <font>
+               <Font size="21.0" />
+            </font>
+         </Label>
+         <VBox prefHeight="38.0" prefWidth="198.0" spacing="10.0">
+            <children>
+            
+                      <Label styleClass="item-title" text="Determinate" />
+               <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="15.0">
+                  <children>
+                      <ProgressBar fx:id="determinateProgressBar" minWidth="200" prefHeight="26.0" prefWidth="200" progress="0.4" />
+                  </children>
+               </HBox>
+            </children>
+         </VBox>
+         <VBox prefHeight="30.0" prefWidth="172.0" spacing="10.0">
+            <children>
+            
+                <Label styleClass="item-title" text="Indeterminate" />
+                <ProgressBar minWidth="200" prefWidth="200" />
+            </children>
+         </VBox>
+      </children>
+   </VBox>
+    <Label fx:id="progressLabel" layoutX="272.0" layoutY="178.0" styleClass="item-title" text="xx" />
+</AnchorPane>

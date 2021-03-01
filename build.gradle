@@ -1,0 +1,6 @@
+allprojects {
+    group = 'com.pixelduke'
+}
+
+
+

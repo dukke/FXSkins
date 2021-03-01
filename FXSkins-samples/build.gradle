@@ -1,0 +1,32 @@
+plugins {
+    id 'application'
+    id 'org.openjfx.javafxplugin' version '0.0.8'
+}
+
+javafx {
+    version = "11.0.2"
+    modules = [ 'javafx.controls', 'javafx.fxml', 'javafx.swing', 'javafx.web', 'javafx.graphics' ]
+}
+
+//mainClassName = 'com.pixelduke.control.skin.SliderSample'
+
+//mainClassName = 'com.pixelduke.control.skin.ButtonSample'
+//mainClassName = 'com.pixelduke.control.skin.ToggleButtonSample'
+
+//mainClassName = 'com.pixelduke.control.skin.TextFieldSample'
+//mainClassName = 'com.pixelduke.control.skin.PasswordFieldSample'
+
+//mainClassName = 'com.pixelduke.control.skin.ToggleSwitchSample'
+
+mainClassName = 'com.pixelduke.control.skin.ProgressBarSample'
+
+
+dependencies {
+    compile project(':FXSkins')
+
+    implementation files('lib/scenicview.jar')
+}
+
+repositories {
+    mavenCentral()
+}
