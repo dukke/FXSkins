@@ -16,7 +16,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.pixelduke.control;
+package com.pixelduke.control.skin;
 
 public class FXSkins {
     private static final String STYLESHEET_URL = FXSkins.class.getResource("fx-skins.css").toExternalForm();

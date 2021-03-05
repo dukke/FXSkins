@@ -1,4 +1,4 @@
-package com.pixelduke.control.skin.controllers;
+package com.pixelduke.samples.control.skin.controllers;
 
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;

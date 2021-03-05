@@ -25,7 +25,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
   -->
 
-<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="281.0" prefWidth="375.0" styleClass="background" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pixelduke.control.skin.controllers.ProgressBarController">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="281.0" prefWidth="375.0" styleClass="background" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pixelduke.samples.control.skin.controllers.ProgressBarController">
     <Label layoutX="31.0" layoutY="17.5" styleClass="header" text="Progress Bar">
       <font>
          <Font size="30.0" />
@@ -39,8 +39,7 @@
          </Label>
          <VBox prefHeight="38.0" prefWidth="198.0" spacing="10.0">
             <children>
-            
-                      <Label styleClass="item-title" text="Determinate" />
+                <Label styleClass="item-title" text="Determinate" />
                <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="15.0">
                   <children>
                       <ProgressBar fx:id="determinateProgressBar" minWidth="200" prefHeight="26.0" prefWidth="200" progress="0.4" />

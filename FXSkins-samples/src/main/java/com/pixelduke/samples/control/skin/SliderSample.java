@@ -1,6 +1,6 @@
-package com.pixelduke.control.skin;
+package com.pixelduke.samples.control.skin;
 
-import com.pixelduke.control.FXSkins;
+import com.pixelduke.control.skin.FXSkins;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -11,7 +11,7 @@ import java.io.IOException;
 
 public class SliderSample extends Application {
 
-    private static final String RESOURCE = "Slider sample.fxml";
+    private static final String RESOURCE = "Slider Sample.fxml";
 
     public static void main(String[] args) {
         launch(args);

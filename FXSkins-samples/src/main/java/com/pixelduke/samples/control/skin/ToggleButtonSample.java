@@ -1,6 +1,6 @@
-package com.pixelduke.control.skin;
+package com.pixelduke.samples.control.skin;
 
-import com.pixelduke.control.FXSkins;
+import com.pixelduke.control.skin.FXSkins;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -9,9 +9,9 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class ButtonSample extends Application {
+public class ToggleButtonSample extends Application {
 
-    private static final String RESOURCE = "Button Sample.fxml";
+    private static final String RESOURCE = "ToggleButton Sample.fxml";
 
     public static void main(String[] args) {
         launch(args);
@@ -24,7 +24,7 @@ public class ButtonSample extends Application {
         Parent root = FXMLLoader.load(getClass().getResource(RESOURCE));
 
         Scene scene = new Scene(root);
-        stage.setTitle("Button Sample");
+        stage.setTitle("ToggleButton Sample");
 
         scene.getStylesheets().add(FXSkins.getStylesheetURL());
         scene.getStylesheets().add(TextFieldSample.class.getResource("default-skin.css").toExternalForm());
@@ -33,4 +33,3 @@ public class ButtonSample extends Application {
         stage.show();
     }
 }
-

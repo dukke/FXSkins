@@ -264,6 +264,72 @@ TextField > .right-button:hover > .right-button-graphic {
     -fx-background-color: -fx-accent;
 }
 
+/*******************************************************************************
+ *                                                                             *
+ * Scroll Pane                                                                 *
+ *                                                                             *
+ ******************************************************************************/
+
+.scroll-pane {
+    -fx-skin: "com.pixelduke.control.skin.FXScrollPaneSkin";
+}
+
+.scroll-pane > .scroll-bar,
+.scroll-pane > .scroll-bar .decrement-arrow,
+.scroll-pane > .scroll-bar .increment-arrow,
+.scroll-pane > .scroll-bar .decrement-button,
+.scroll-pane > .scroll-bar .increment-button {
+    -fx-padding: 0;
+}
+
+/************************   Minimal ScrollBar   ********************************/
+
+.scroll-pane .minimal-scroll-bar:vertical .thumb {
+    -fx-background-insets: 0 0 0 5;
+}
+
+.scroll-pane .minimal-scroll-bar:horizontal .thumb {
+    -fx-background-insets: 0 0 2 0;
+}
+
+.scroll-pane .minimal-scroll-bar .decrement-arrow,
+.scroll-pane .minimal-scroll-bar .increment-arrow {
+    -fx-pref-width: 0;
+    -fx-pref-height: 0;
+}
+
+.scroll-pane .minimal-scroll-bar {
+    -fx-background-color: transparent;
+    -fx-pref-width: 7;
+    -fx-pref-height: 7;
+    -fx-padding: 0;
+}
+
+.scroll-pane .minimal-scroll-bar > .track-background {
+    -fx-background-color: transparent;
+}
+
+.scroll-pane .minimal-scroll-bar .thumb {
+    -fx-background-color: #7a7a7a;
+}
+
+/************************   Normal ScrollBar   *********************************/
+
+.scroll-pane > .normal-scroll-bar:vertical > .increment-button,
+.scroll-pane > .normal-scroll-bar:vertical > .decrement-button {
+    -fx-padding: 0.25em 0.25em 0.25em 0.166667em; /* 3 3 3 2 */
+}
+.scroll-pane > .normal-scroll-bar:vertical {
+    -fx-padding: 1 0 1 0;
+}
+
+.normal-scroll-bar:vertical > .decrement-button > .decrement-arrow {
+    -fx-padding: 0.167em 0.333em 0.167em 0.333em; /* 2 4 2 4 */
+}
+.normal-scroll-bar:vertical > .increment-button > .increment-arrow {
+    -fx-padding: 0.167em 0.333em 0.167em 0.333em; /* 2 4 2 4 */
+}
+
 
 
 

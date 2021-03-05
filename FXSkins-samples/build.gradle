@@ -18,11 +18,20 @@ javafx {
 
 //mainClassName = 'com.pixelduke.control.skin.ToggleSwitchSample'
 
-mainClassName = 'com.pixelduke.control.skin.ProgressBarSample'
+//mainClassName = 'com.pixelduke.control.skin.ProgressBarSample'
 
+mainClassName = 'com.pixelduke.samples.fxskins/com.pixelduke.samples.control.skin.ScrollPaneSample'
+
+application {
+    applicationDefaultJvmArgs =  [
+            "--add-opens=javafx.controls/javafx.scene.control.skin=com.pixelduke.fxskins"
+    ]
+}
 
 dependencies {
     compile project(':FXSkins')
+
+    compile 'org.controlsfx:controlsfx:11.0.0'
 
     implementation files('lib/scenicview.jar')
 }
