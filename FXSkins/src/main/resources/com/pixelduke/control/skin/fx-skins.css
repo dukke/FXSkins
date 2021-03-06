@@ -271,7 +271,7 @@ TextField > .right-button:hover > .right-button-graphic {
  ******************************************************************************/
 
 .scroll-pane {
-    -fx-skin: "com.pixelduke.control.skin.FXScrollPaneSkin";
+    -fx-skin: "com.pixelduke.control.skin.ConsciousScrollPaneSkin";
 }
 
 .scroll-pane > .scroll-bar,

@@ -14,7 +14,7 @@ import javafx.scene.control.skin.ScrollPaneSkin;
 import javafx.scene.input.MouseEvent;
 import javafx.util.Duration;
 
-public class FXScrollPaneSkin extends ScrollPaneSkin {
+public class ConsciousScrollPaneSkin extends ScrollPaneSkin {
     private static final Duration SCROLL_BAR_FADE_DURATION = Duration.millis(400);
     private static final Duration MOUSE_EXITED_FROM_SCROLLBAR_TIMER_DURATION = Duration.seconds(2);
 
@@ -35,19 +35,14 @@ public class FXScrollPaneSkin extends ScrollPaneSkin {
      *
      * @param control The control that this skin should be installed onto.
      */
-    public FXScrollPaneSkin(ScrollPane control) {
+    public ConsciousScrollPaneSkin(ScrollPane control) {
         super(control);
-
-        minimalHBar.setOrientation(Orientation.HORIZONTAL);
-        minimalVBar.setOrientation(Orientation.VERTICAL);
-        normalHBar.setOrientation(Orientation.HORIZONTAL);
-        normalVBar.setOrientation(Orientation.VERTICAL);
-
-        normalVBar.setOpacity(0);
-        normalHBar.setOpacity(0);
 
         oldHBar = getHorizontalScrollBar();
         oldVBar = getVerticalScrollBar();
+
+        oldVBar.setManaged(false);
+        oldHBar.setManaged(false);
 
         initScrollBars();
 
@@ -55,8 +50,13 @@ public class FXScrollPaneSkin extends ScrollPaneSkin {
     }
 
     private void initScrollBars() {
-        oldVBar.setManaged(false);
-        oldHBar.setManaged(false);
+        minimalHBar.setOrientation(Orientation.HORIZONTAL);
+        minimalVBar.setOrientation(Orientation.VERTICAL);
+        normalHBar.setOrientation(Orientation.HORIZONTAL);
+        normalVBar.setOrientation(Orientation.VERTICAL);
+
+        normalVBar.setOpacity(0);
+        normalHBar.setOpacity(0);
 
         bindScrollBar(minimalHBar, oldHBar);
         bindScrollBar(minimalVBar, oldVBar);
@@ -76,13 +76,11 @@ public class FXScrollPaneSkin extends ScrollPaneSkin {
         mouseExitedFromScrollBarTimer.stop();
 
         if (normalVBar.getOpacity() < 1) {
-            FadeTransition fadeOutTransition = new FadeTransition(SCROLL_BAR_FADE_DURATION, minimalVBar);
-            fadeOutTransition.setFromValue(1);
-            fadeOutTransition.setToValue(0);
-
             FadeTransition fadeInTransition = new FadeTransition(SCROLL_BAR_FADE_DURATION, normalVBar);
-            fadeInTransition.setFromValue(0);
             fadeInTransition.setToValue(1);
+
+            FadeTransition fadeOutTransition = new FadeTransition(SCROLL_BAR_FADE_DURATION, minimalVBar);
+            fadeOutTransition.setToValue(0);
 
             ParallelTransition scrollBarsAnimation = new ParallelTransition(fadeInTransition, fadeOutTransition);
             scrollBarsAnimation.play();
@@ -91,11 +89,9 @@ public class FXScrollPaneSkin extends ScrollPaneSkin {
 
     private void mouseExitedFromNormalVBar(MouseEvent mouseEvent) {
         FadeTransition fadeInTransition = new FadeTransition(SCROLL_BAR_FADE_DURATION, minimalVBar);
-        fadeInTransition.setFromValue(0);
         fadeInTransition.setToValue(1);
 
         FadeTransition fadeOutTransition = new FadeTransition(SCROLL_BAR_FADE_DURATION, normalVBar);
-        fadeOutTransition.setFromValue(1);
         fadeOutTransition.setToValue(0);
 
         ParallelTransition scrollBarAnimation = new ParallelTransition(fadeInTransition, fadeOutTransition);
@@ -118,6 +114,7 @@ public class FXScrollPaneSkin extends ScrollPaneSkin {
     protected void layoutChildren(double x, double y, double w, double h) {
         final ScrollPane control = getSkinnable();
 
+        // We call the super.layoutChildren and temporarily set things up so that the old ScrollBars don't show up
         ScrollPane.ScrollBarPolicy hBarPolicy = control.getHbarPolicy();
         ScrollPane.ScrollBarPolicy vBarPolicy = control.getVbarPolicy();
         control.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
@@ -132,6 +129,7 @@ public class FXScrollPaneSkin extends ScrollPaneSkin {
         final double topPadding = snapSizeY(padding.getTop());
         final double bottomPadding = snapSizeY(padding.getBottom());
 
+        // Layout "new" ScrollBars
         Boolean verticalSBVisible = (Boolean) ReflectionUtils.forceInvokeMethod(this, "determineVerticalSBVisible");
         minimalVBar.setVisible(verticalSBVisible);
         normalVBar.setVisible(verticalSBVisible);
