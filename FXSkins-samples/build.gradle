@@ -8,19 +8,19 @@ javafx {
     modules = [ 'javafx.controls', 'javafx.fxml', 'javafx.swing', 'javafx.web', 'javafx.graphics' ]
 }
 
-//mainClassName = 'com.pixelduke.control.skin.SliderSample'
+//mainClassName = 'com.pixelduke.samples.fxskins/com.pixelduke.samples.control.skin.SliderSample'
 
-//mainClassName = 'com.pixelduke.control.skin.ButtonSample'
-//mainClassName = 'com.pixelduke.control.skin.ToggleButtonSample'
+//mainClassName = 'com.pixelduke.samples.fxskins/com.pixelduke.samples.control.skin.ButtonSample'
+//mainClassName = 'com.pixelduke.samples.fxskins/com.pixelduke.samples.control.skin.ToggleButtonSample'
 
-//mainClassName = 'com.pixelduke.control.skin.TextFieldSample'
-//mainClassName = 'com.pixelduke.control.skin.PasswordFieldSample'
+//mainClassName = 'com.pixelduke.samples.fxskins/com.pixelduke.samples.control.skin.TextFieldSample'
+//mainClassName = 'com.pixelduke.samples.fxskins/com.pixelduke.samples.control.skin.PasswordFieldSample'
 
-//mainClassName = 'com.pixelduke.control.skin.ToggleSwitchSample'
+//mainClassName = 'com.pixelduke.samples.fxskins/com.pixelduke.samples.control.skin.ToggleSwitchSample'
 
-//mainClassName = 'com.pixelduke.control.skin.ProgressBarSample'
+mainClassName = 'com.pixelduke.samples.fxskins/com.pixelduke.samples.control.skin.ProgressBarSample'
 
-mainClassName = 'com.pixelduke.samples.fxskins/com.pixelduke.samples.control.skin.ScrollPaneSample'
+//mainClassName = 'com.pixelduke.samples.fxskins/com.pixelduke.samples.control.skin.ScrollPaneSample'
 
 application {
     applicationDefaultJvmArgs =  [
