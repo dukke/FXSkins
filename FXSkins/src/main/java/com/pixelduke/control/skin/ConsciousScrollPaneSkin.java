@@ -79,16 +79,35 @@ public class ConsciousScrollPaneSkin extends ScrollPaneSkin {
         normalHBar.addEventHandler(MouseEvent.MOUSE_EXITED, mouseExitedFromNormalHBar);
     }
 
+    private void bindScrollBar(ScrollBar scrollBarToBind, ScrollBar oldScrollBar) {
+        scrollBarToBind.valueProperty().bindBidirectional(oldScrollBar.valueProperty());
+        scrollBarToBind.minProperty().bindBidirectional(oldScrollBar.minProperty());
+        scrollBarToBind.maxProperty().bindBidirectional(oldScrollBar.maxProperty());
+        scrollBarToBind.visibleAmountProperty().bindBidirectional(oldScrollBar.visibleAmountProperty());
+        scrollBarToBind.unitIncrementProperty().bindBidirectional(oldScrollBar.unitIncrementProperty());
+        scrollBarToBind.blockIncrementProperty().bindBidirectional(oldScrollBar.blockIncrementProperty());
+    }
+
     private void mouseEnteredOnNormalVBar(MouseEvent mouseEvent) {
         mouseExitedFromVScrollBarTimer.stop();
 
-        normalVBar.toFront();
+        doMouseEnteredOnNormalBar(normalVBar, minimalVBar);
+    }
 
-        if (normalVBar.getOpacity() < 1) {
-            FadeTransition fadeInTransition = new FadeTransition(SCROLL_BAR_FADE_DURATION, normalVBar);
+    private void mouseEnteredOnNormalHBar(MouseEvent mouseEvent) {
+        mouseExitedFromHScrollBarTimer.stop();
+
+        doMouseEnteredOnNormalBar(normalHBar, minimalHBar);
+    }
+
+    private void doMouseEnteredOnNormalBar(ScrollBar normalScrollBar, ScrollBar minimalScrollBar) {
+        normalScrollBar.toFront();
+
+        if (normalScrollBar.getOpacity() < 1) {
+            FadeTransition fadeInTransition = new FadeTransition(SCROLL_BAR_FADE_DURATION, normalScrollBar);
             fadeInTransition.setToValue(1);
 
-            FadeTransition fadeOutTransition = new FadeTransition(SCROLL_BAR_FADE_DURATION, minimalVBar);
+            FadeTransition fadeOutTransition = new FadeTransition(SCROLL_BAR_FADE_DURATION, minimalScrollBar);
             fadeOutTransition.setToValue(0);
 
             ParallelTransition scrollBarsAnimation = new ParallelTransition(fadeInTransition, fadeOutTransition);
@@ -97,59 +116,25 @@ public class ConsciousScrollPaneSkin extends ScrollPaneSkin {
     }
 
     private void mouseExitedFromNormalVBar(MouseEvent mouseEvent) {
-        FadeTransition fadeInTransition = new FadeTransition(SCROLL_BAR_FADE_DURATION, minimalVBar);
-        fadeInTransition.setToValue(1);
-
-        FadeTransition fadeOutTransition = new FadeTransition(SCROLL_BAR_FADE_DURATION, normalVBar);
-        fadeOutTransition.setToValue(0);
-
-        ParallelTransition scrollBarAnimation = new ParallelTransition(fadeInTransition, fadeOutTransition);
-
-        KeyFrame keyFrame = new KeyFrame(MOUSE_EXITED_FROM_SCROLLBAR_TIMER_DURATION, event -> scrollBarAnimation.play());
-        mouseExitedFromVScrollBarTimer.getKeyFrames().setAll(keyFrame);
-        mouseExitedFromVScrollBarTimer.playFromStart();
-    }
-
-    private void mouseEnteredOnNormalHBar(MouseEvent mouseEvent) {
-        mouseExitedFromHScrollBarTimer.stop();
-
-        normalHBar.toFront();
-
-        if (normalHBar.getOpacity() < 1) {
-            FadeTransition fadeInTransition = new FadeTransition(SCROLL_BAR_FADE_DURATION, normalHBar);
-            fadeInTransition.setToValue(1);
-
-            FadeTransition fadeOutTransition = new FadeTransition(SCROLL_BAR_FADE_DURATION, minimalHBar);
-            fadeOutTransition.setToValue(0);
-
-            ParallelTransition scrollBarsAnimation = new ParallelTransition(fadeInTransition, fadeOutTransition);
-            scrollBarsAnimation.play();
-        }
+        doMouseExitedFromNormalBar(normalVBar, minimalVBar, mouseExitedFromVScrollBarTimer);
     }
 
     private void mouseExitedFromNormalHBar(MouseEvent mouseEvent) {
-        FadeTransition fadeInTransition = new FadeTransition(SCROLL_BAR_FADE_DURATION, minimalHBar);
+        doMouseExitedFromNormalBar(normalHBar, minimalHBar, mouseExitedFromHScrollBarTimer);
+    }
+
+    private void doMouseExitedFromNormalBar(ScrollBar normalBar, ScrollBar minimalBar, Timeline mouseExitedTimer) {
+        FadeTransition fadeInTransition = new FadeTransition(SCROLL_BAR_FADE_DURATION, minimalBar);
         fadeInTransition.setToValue(1);
 
-        FadeTransition fadeOutTransition = new FadeTransition(SCROLL_BAR_FADE_DURATION, normalHBar);
+        FadeTransition fadeOutTransition = new FadeTransition(SCROLL_BAR_FADE_DURATION, normalBar);
         fadeOutTransition.setToValue(0);
 
         ParallelTransition scrollBarAnimation = new ParallelTransition(fadeInTransition, fadeOutTransition);
 
         KeyFrame keyFrame = new KeyFrame(MOUSE_EXITED_FROM_SCROLLBAR_TIMER_DURATION, event -> scrollBarAnimation.play());
-        mouseExitedFromHScrollBarTimer.getKeyFrames().setAll(keyFrame);
-        mouseExitedFromHScrollBarTimer.playFromStart();
-    }
-
-
-
-    private void bindScrollBar(ScrollBar scrollBarToBind, ScrollBar oldScrollBar) {
-        scrollBarToBind.valueProperty().bindBidirectional(oldScrollBar.valueProperty());
-        scrollBarToBind.minProperty().bindBidirectional(oldScrollBar.minProperty());
-        scrollBarToBind.maxProperty().bindBidirectional(oldScrollBar.maxProperty());
-        scrollBarToBind.visibleAmountProperty().bindBidirectional(oldScrollBar.visibleAmountProperty());
-        scrollBarToBind.unitIncrementProperty().bindBidirectional(oldScrollBar.unitIncrementProperty());
-        scrollBarToBind.blockIncrementProperty().bindBidirectional(oldScrollBar.blockIncrementProperty());
+        mouseExitedTimer.getKeyFrames().setAll(keyFrame);
+        mouseExitedTimer.playFromStart();
     }
 
     @Override
