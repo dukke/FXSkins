@@ -18,9 +18,9 @@ javafx {
 
 //mainClassName = 'com.pixelduke.samples.fxskins/com.pixelduke.samples.control.skin.ToggleSwitchSample'
 
-mainClassName = 'com.pixelduke.samples.fxskins/com.pixelduke.samples.control.skin.ProgressBarSample'
+//mainClassName = 'com.pixelduke.samples.fxskins/com.pixelduke.samples.control.skin.ProgressBarSample'
 
-//mainClassName = 'com.pixelduke.samples.fxskins/com.pixelduke.samples.control.skin.ScrollPaneSample'
+mainClassName = 'com.pixelduke.samples.fxskins/com.pixelduke.samples.control.skin.ScrollPaneSample'
 
 application {
     applicationDefaultJvmArgs =  [
