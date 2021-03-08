@@ -292,8 +292,8 @@ TextField > .right-button:hover > .right-button-graphic {
 
 .scroll-pane .minimal-scroll-bar {
     -fx-background-color: transparent;
-    -fx-pref-width: 7;
-    -fx-pref-height: 7;
+    -fx-pref-width: 8;
+    -fx-pref-height: 8;
     -fx-padding: 0;
 }
 
@@ -301,16 +301,12 @@ TextField > .right-button:hover > .right-button-graphic {
     -fx-background-color: transparent;
 }
 
-.scroll-pane .minimal-scroll-bar:vertical .thumb {
-    -fx-background-insets: 0 0 0 5;
+.scroll-pane > .minimal-scroll-bar:vertical .thumb {
+    -fx-background-color: -fx-outer-border, -fx-inner-border, -fx-body-color-to-right;
 }
 
-.scroll-pane .minimal-scroll-bar:horizontal .thumb {
-    -fx-background-insets: 5 0 0 0;
-}
-
-.scroll-pane .minimal-scroll-bar .thumb {
-    -fx-background-color: #7a7a7a;
+.scroll-pane > .minimal-scroll-bar:horizontal .thumb {
+    -fx-background-color: -fx-outer-border, -fx-inner-border, -fx-body-color;
 }
 
 /************************   Normal ScrollBar   *********************************/
