@@ -8,9 +8,9 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
 
-<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
-            prefWidth="521.0" xmlns="http://javafx.com/javafx/15.0.1">
+<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="521.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <content>
       <GridPane prefHeight="620.0" prefWidth="504.0">
         <columnConstraints>
@@ -27,11 +27,21 @@
             <TextField maxWidth="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <Label text="123456789" GridPane.columnIndex="1" />
             <Label text="Name:" GridPane.rowIndex="1" />
-            <TextArea prefHeight="520.0" prefWidth="441.0" GridPane.columnSpan="2" GridPane.rowIndex="2" />
+            <VBox GridPane.columnSpan="2" GridPane.rowIndex="2">
+               <children>
+                  <TextArea prefHeight="520.0" prefWidth="441.0" />
+               </children>
+               <padding>
+                  <Insets top="10.0" />
+               </padding>
+            </VBox>
          </children>
          <padding>
-            <Insets left="10.0" right="10.0" />
+            <Insets bottom="15.0" left="10.0" right="10.0" />
          </padding>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
       </GridPane>
    </content>
 </ScrollPane>

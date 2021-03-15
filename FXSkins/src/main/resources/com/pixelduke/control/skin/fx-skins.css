@@ -284,20 +284,20 @@ TextField > .right-button:hover > .right-button-graphic {
 
 /************************   Minimal ScrollBar   ********************************/
 
-.scroll-pane .minimal-scroll-bar .decrement-arrow,
-.scroll-pane .minimal-scroll-bar .increment-arrow {
+.scroll-pane > .minimal-scroll-bar .decrement-arrow,
+.scroll-pane > .minimal-scroll-bar .increment-arrow {
     -fx-pref-width: 0;
     -fx-pref-height: 0;
 }
 
-.scroll-pane .minimal-scroll-bar {
+.scroll-pane > .minimal-scroll-bar {
     -fx-background-color: transparent;
     -fx-pref-width: 8;
     -fx-pref-height: 8;
     -fx-padding: 0;
 }
 
-.scroll-pane .minimal-scroll-bar > .track-background {
+.scroll-pane > .minimal-scroll-bar > .track-background {
     -fx-background-color: transparent;
 }
 
