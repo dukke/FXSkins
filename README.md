@@ -32,5 +32,5 @@ Also, and if you allow it, to showcase example uses.
 Seeing this library get used also always motivates me to keep working on it.
 
 ## License
-FXSkins uses the [GNU General Public License v3.0-or-later](https://opensource.org/licenses/lgpl-3.0.html)
+FXSkins uses the ['GNU General Public License, version 2, with the Classpath Exception'](https://openjdk.java.net/legal/gplv2+ce.html)
 

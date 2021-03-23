@@ -129,8 +129,8 @@ def customizePom(pom) {
             }
             licenses {
                 license {
-                    name 'GNU General Public License v3.0-or-later'
-                    url 'https://opensource.org/licenses/lgpl-3.0.html'
+                    name 'GNU General Public License, version 2, with the Classpath Exception'
+                    url 'https://openjdk.java.net/legal/gplv2+ce.html'
                     distribution 'repo'
                 }
             }
