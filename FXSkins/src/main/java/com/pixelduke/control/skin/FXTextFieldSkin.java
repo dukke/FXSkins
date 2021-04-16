@@ -36,9 +36,9 @@ public class FXTextFieldSkin extends TextFieldWithButtonSkin {
         });
     }
 
-    protected void onRightButtonPressed()
+    @Override
+    protected void onRightButtonReleased()
     {
         getSkinnable().setText("");
     }
-
 }
