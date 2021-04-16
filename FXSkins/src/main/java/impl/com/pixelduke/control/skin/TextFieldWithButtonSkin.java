@@ -205,7 +205,7 @@ public class TextFieldWithButtonSkin extends TextFieldSkin{
 
         rightButton.resize(clearButtonWidth, h);
         positionInArea(rightButton,
-                (x+w) - clearButtonWidth, y,
+                (x+w) + textField.snappedLeftInset() + textField.snappedRightInset() - (h + textField.snappedTopInset() + textField.snappedBottomInset()), y,
                 clearButtonWidth, h, 0, HPos.CENTER, VPos.CENTER);
     }
 

@@ -47,23 +47,31 @@ TextField {
     -fx-skin: "com.pixelduke.control.skin.FXTextFieldSkin";
 }
 
-TextField {
-    -right-button-visible: true;
+.text-field {
+    -fx-padding: 0.3333333em 3em 0.3333333em 0.5833333em;
 }
 
-TextField > .right-button > .right-button-graphic {
+.text-field > .right-button > .right-button-graphic {
     -fx-shape: "M221.738,305.873l6.135,6.16l-2.875,2.863l-6.135-6.159l-6.263,6.237l-2.864-2.875l6.263-6.238l-6.177-6.202l2.875-2.863l6.177,6.201l6.244-6.22l2.864,2.876L221.738,305.873z";
 
     -fx-padding: 0.416667em;
-    -fx-background-color: #333;
+    -fx-background-color: #111;
 }
 
-TextField > .right-button:hover {
+.text-field > .right-button {
     -fx-cursor: default;
+
+    -fx-background-color: transparent;
+    -fx-background-insets: -0.3333333em -0.6666666em -0.3333333em -0.5833333em; /* 4 8 4 7 px in em */
+    -fx-background-radius: 0 3 3 0, 2, 2;
 }
 
-TextField > .right-button:hover > .right-button-graphic {
-    -fx-background-color: #666666;
+.text-field > .right-button:pressed {
+    -fx-background-color: -fx-accent;
+}
+
+.text-field > .right-button:pressed > .right-button-graphic {
+    -fx-background-color: white;
 }
 
 /*******************************************************************************
@@ -79,35 +87,10 @@ TextField > .right-button:hover > .right-button-graphic {
 .password-field {
     -right-button-visible: true;
 }
-.password-field > .right-button {
-    -fx-padding: 0.166667em 0.083333em 0.166667em 0.166667em;
-}
 
 .password-field > .right-button > .right-button-graphic {
     -fx-shape: "M307.688,399.564c0,1.484-1.203,2.688-2.688,2.688c-1.484,0-2.688-1.203-2.688-2.688s1.203-2.688,2.688-2.688C306.484,396.876,307.688,398.08,307.688,399.564z M297.5,399h2.5c0,0,1.063-4,5-4c3.688,0,5,4,5,4h2.5c0,0-2.063-6.5-7.5-6.5C299,392.5,297.5,399,297.5,399z";
-    /*-fx-shape: "M1,9c0,0,4-8,11-8s11,8,11,8s-4,8-11,8S1,9,1,9z M12,6c1.7,0,3,1.3,3,3s-1.3,3-3,3s-3-1.3-3-3S10.3,6,12,6z";*/
-
-    -fx-scale-shape: true;
-    -fx-pref-width: 14px;
-    -fx-pref-height: 10px;
-
-    -fx-background-color: #111;
-
-    /*
-    -fx-border-color: #111;
-    -fx-border-width: 1px;
-    */
-}
-
-.password-field > .right-button:hover {
-    -fx-cursor: default;
-}
-
-.password-field > .right-button:hover > .right-button-graphic {
-    -fx-background-color: #777;
-}
-
-.password-field > .right-button:pressed > .right-button-graphic {
+    -fx-scale-shape: false;
     -fx-background-color: #111;
 }
 
