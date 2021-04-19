@@ -63,7 +63,6 @@ TextField > .right-button > .right-button-graphic {
 TextField > .right-button {
     -fx-cursor: default;
 
-    -fx-background-color: transparent;
     -fx-background-insets: -0.3333333em -0.6666666em -0.3333333em -0.5833333em; /* 4 8 4 7 px in em */
     -fx-background-radius: 0 3 3 0, 2, 2;
 }
@@ -95,7 +94,6 @@ TextField > .right-button:pressed > .right-button-graphic {
 .password-field > .right-button {
     -fx-cursor: default;
 
-    -fx-background-color: transparent;
     -fx-background-insets: -0.3333333em -0.6666666em -0.3333333em -0.5833333em; /* 4 8 4 7 px in em */
     -fx-background-radius: 0 3 3 0, 2, 2;
 }
