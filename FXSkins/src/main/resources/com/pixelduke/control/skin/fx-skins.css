@@ -43,6 +43,10 @@
  *                                                                             *
  ******************************************************************************/
 
+/* Issue #149 (JMetro): Need to use TextField because ColorPicker has custom textfields with "text-field" styleclass that aren't actually of type
+   TextField which will cause an IllegalArgumentException when creating the impl.jfxtras.styles.jmetro.TextFieldSkin object and passing it,
+   for instance, the WebColorField */
+
 TextField {
     -fx-skin: "com.pixelduke.control.skin.FXTextFieldSkin";
 }
