@@ -88,6 +88,10 @@ TextField > .right-button:pressed > .right-button-graphic {
 .password-field {
     -right-button-visible: true;
 
+    -fx-padding: 0.3333333em 0.5833333em 0.3333333em 0.5833333em;
+}
+
+.password-field:focused {
     -fx-padding: 0.3333333em 3em 0.3333333em 0.5833333em;
 }
 
