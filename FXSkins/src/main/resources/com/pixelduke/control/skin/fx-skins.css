@@ -68,6 +68,10 @@ TextField > .right-button > .right-button-graphic {
     -fx-background-color: #111;
 }
 
+TextField > .right-button:hover > .right-button-graphic {
+	-fx-background-color: #666666;
+}
+
 TextField > .right-button {
     -fx-cursor: default;
 
@@ -97,6 +101,10 @@ TextField > .right-button:pressed > .right-button-graphic {
     -right-button-visible: true;
 
     -fx-padding: 0.3333333em 0.5833333em 0.3333333em 0.5833333em;
+}
+
+.password-field > .right-button:hover > .right-button-graphic {
+	-fx-background-color: #666666;
 }
 
 .password-field:focused {
