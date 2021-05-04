@@ -54,6 +54,10 @@ TextField {
 TextField {
     -right-button-visible: true;
 
+    -fx-padding: 0.3333333em 0.5833333em 0.3333333em 0.5833333em;
+}
+
+TextField:focused {
     -fx-padding: 0.3333333em 3em 0.3333333em 0.5833333em;
 }
 
