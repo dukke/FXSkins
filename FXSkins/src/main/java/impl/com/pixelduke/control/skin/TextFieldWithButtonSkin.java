@@ -200,13 +200,10 @@ public class TextFieldWithButtonSkin extends TextFieldSkin{
     protected void layoutChildren(double x, double y, double w, double h) {
         super.layoutChildren(x, y, w, h);
 
-        final double clearGraphicWidth = snapSizeX(rightButtonGraphic.prefWidth(-1));
-        final double clearButtonWidth = rightButton.snappedLeftInset() + clearGraphicWidth + rightButton.snappedRightInset();
+        final double clearButtonWidth = rightButton.snappedLeftInset() + rightButton.snappedRightInset();
 
-        rightButton.resize(clearButtonWidth, h);
-        positionInArea(rightButton,
-                (x+w) + textField.snappedLeftInset() + textField.snappedRightInset() - (h + textField.snappedTopInset() + textField.snappedBottomInset()), y,
-                clearButtonWidth, h, 0, HPos.CENTER, VPos.CENTER);
+        rightButton.resize(clearButtonWidth, textField.getHeight());
+        positionInArea(rightButton, textField.getWidth() - clearButtonWidth, 0, clearButtonWidth, textField.getHeight(), 0, HPos.LEFT, VPos.TOP);
     }
 
     @Override
