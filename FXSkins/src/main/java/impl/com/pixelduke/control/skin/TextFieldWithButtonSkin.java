@@ -18,6 +18,10 @@
 
 package impl.com.pixelduke.control.skin;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 import javafx.beans.InvalidationListener;
 import javafx.beans.property.BooleanProperty;
 import javafx.css.CssMetaData;
@@ -25,17 +29,11 @@ import javafx.css.SimpleStyleableBooleanProperty;
 import javafx.css.Styleable;
 import javafx.css.StyleableProperty;
 import javafx.css.converter.BooleanConverter;
-import javafx.geometry.HPos;
-import javafx.geometry.VPos;
 import javafx.scene.control.SkinBase;
 import javafx.scene.control.TextField;
 import javafx.scene.control.skin.TextFieldSkin;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.StackPane;
-
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 
 public class TextFieldWithButtonSkin extends TextFieldSkin{
     private static final String RIGHT_BUTTON_VISIBLE_PROPERTY_NAME = "-right-button-visible";
