@@ -202,8 +202,8 @@ public class TextFieldWithButtonSkin extends TextFieldSkin{
 
         final double clearButtonWidth = rightButton.snappedLeftInset() + rightButton.snappedRightInset();
 
-        rightButton.resize(clearButtonWidth, textField.getHeight());
-        rightButton.setLayoutX(textField.getWidth() - clearButtonWidth);
+        rightButton.resize(clearButtonWidth, h + textField.snappedTopInset() + textField.snappedBottomInset());
+        rightButton.setLayoutX(w + textField.snappedRightInset() + textField.snappedLeftInset() - clearButtonWidth);
     }
 
     @Override
