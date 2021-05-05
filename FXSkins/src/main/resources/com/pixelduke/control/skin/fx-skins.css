@@ -64,12 +64,8 @@ TextField:focused {
 TextField > .right-button > .right-button-graphic {
     -fx-shape: "M221.738,305.873l6.135,6.16l-2.875,2.863l-6.135-6.159l-6.263,6.237l-2.864-2.875l6.263-6.238l-6.177-6.202l2.875-2.863l6.177,6.201l6.244-6.22l2.864,2.876L221.738,305.873z";
 
-    -fx-padding: 1em;
-    -fx-scale-shape: false;
+    -fx-padding: 0.416667em;
     -fx-background-color: #111;
-    -fx-scale-x: 0.65;
-    -fx-scale-y: 0.65;
-    -fx-scale-z: 0.65;
 }
 
 TextField > .right-button:hover > .right-button-graphic {
@@ -80,6 +76,7 @@ TextField > .right-button {
     -fx-cursor: default;
 
     -fx-background-radius: 0 3 3 0, 2, 2;
+    -fx-padding: 0.583333em;
 }
 
 TextField > .right-button:pressed {
@@ -118,14 +115,15 @@ TextField > .right-button:pressed > .right-button-graphic {
     -fx-cursor: default;
 
     -fx-background-radius: 0 3 3 0, 2, 2;
+    -fx-padding: 0.583333em;
 }
 
 .password-field > .right-button > .right-button-graphic {
     -fx-shape: "M307.688,399.564c0,1.484-1.203,2.688-2.688,2.688c-1.484,0-2.688-1.203-2.688-2.688s1.203-2.688,2.688-2.688C306.484,396.876,307.688,398.08,307.688,399.564z M297.5,399h2.5c0,0,1.063-4,5-4c3.688,0,5,4,5,4h2.5c0,0-2.063-6.5-7.5-6.5C299,392.5,297.5,399,297.5,399z";
 
-    -fx-padding: 1em;
-    -fx-scale-shape: false;
+    -fx-padding: 0.416667em;
     -fx-background-color: #111;
+    -fx-scale-shape: false;
 }
 
 .password-field > .right-button:pressed {
