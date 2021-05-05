@@ -76,7 +76,7 @@ TextField > .right-button {
     -fx-cursor: default;
 
     -fx-background-radius: 0 3 3 0, 2, 2;
-    -fx-padding: 0 1.0833333em 0 1.0833333em
+    -fx-padding: 0 1.0833333em 0 1.0833333em;
 }
 
 TextField > .right-button:pressed {
@@ -115,7 +115,7 @@ TextField > .right-button:pressed > .right-button-graphic {
     -fx-cursor: default;
 
     -fx-background-radius: 0 3 3 0, 2, 2;
-    -fx-padding: 0 1.0833333em 0 1.0833333em
+    -fx-padding: 0 1.0833333em 0 1.0833333em;
 }
 
 .password-field > .right-button > .right-button-graphic {
