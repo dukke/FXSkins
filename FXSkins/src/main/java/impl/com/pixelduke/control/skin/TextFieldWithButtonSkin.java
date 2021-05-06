@@ -18,6 +18,10 @@
 
 package impl.com.pixelduke.control.skin;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 import javafx.beans.InvalidationListener;
 import javafx.beans.property.BooleanProperty;
 import javafx.css.CssMetaData;
@@ -25,17 +29,11 @@ import javafx.css.SimpleStyleableBooleanProperty;
 import javafx.css.Styleable;
 import javafx.css.StyleableProperty;
 import javafx.css.converter.BooleanConverter;
-import javafx.geometry.HPos;
-import javafx.geometry.VPos;
 import javafx.scene.control.SkinBase;
 import javafx.scene.control.TextField;
 import javafx.scene.control.skin.TextFieldSkin;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.StackPane;
-
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 
 public class TextFieldWithButtonSkin extends TextFieldSkin{
     private static final String RIGHT_BUTTON_VISIBLE_PROPERTY_NAME = "-right-button-visible";
@@ -200,13 +198,11 @@ public class TextFieldWithButtonSkin extends TextFieldSkin{
     protected void layoutChildren(double x, double y, double w, double h) {
         super.layoutChildren(x, y, w, h);
 
-        final double clearGraphicWidth = snapSizeX(rightButtonGraphic.prefWidth(-1));
-        final double clearButtonWidth = rightButton.snappedLeftInset() + clearGraphicWidth + rightButton.snappedRightInset();
+        final double rightButtonHeight = h + textField.snappedTopInset() + textField.snappedBottomInset();
+        final double rightButtonWidth = rightButton.prefWidth(rightButtonHeight);
 
-        rightButton.resize(clearButtonWidth, h);
-        positionInArea(rightButton,
-                (x+w) - clearButtonWidth, y,
-                clearButtonWidth, h, 0, HPos.CENTER, VPos.CENTER);
+        rightButton.resize(rightButtonWidth, rightButtonHeight);
+        rightButton.setLayoutX(w + textField.snappedRightInset() + textField.snappedLeftInset() - rightButtonWidth);
     }
 
     @Override
