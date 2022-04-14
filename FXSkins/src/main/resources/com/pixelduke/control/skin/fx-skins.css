@@ -49,9 +49,6 @@
 
 TextField {
     -fx-skin: "com.pixelduke.control.skin.FXTextFieldSkin";
-}
-
-TextField {
     -right-button-visible: true;
 
     -fx-padding: 0.3333333em 0.5833333em 0.3333333em 0.5833333em;
@@ -59,6 +56,10 @@ TextField {
 
 TextField:focused {
     -fx-padding: 0.3333333em 3em 0.3333333em 0.5833333em;
+}
+
+TextField:readonly {
+    -right-button-visible: false;
 }
 
 TextField > .right-button > .right-button-graphic {
