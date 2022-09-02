@@ -14,6 +14,22 @@ if you want to know more about this library.
 You can download the jar from the [releases tab](https://github.com/dukke/FXSkins/releases) or get it through
 Maven Central.
 
+Here are examples for Gradle and Maven (replace version number with the version you want):
+
+#### Gradle
+```groovy
+implementation 'com.pixelduke:FXSkins:1.0.0'
+```
+
+#### Maven
+```xml
+<dependency>
+    <groupId>com.pixelduke</groupId>
+    <artifactId>FXSkins</artifactId>
+    <version>1.0.0</version>
+</dependency>
+```
+
 ## Source code
 The FXSkins-samples subproject has samples that you can run and check out how to use FXSkins.
 
@@ -23,6 +39,11 @@ The code is being tested against the latest LTS Java version, which is Java 11.
 We welcome contributions via PR.  
 Before submitting a PR please file an issue for prior discussion. This will avoid you wasting time with a PR that
 might not be approved because, for instance, might be outside the intended scope of the project.
+
+### Filing bugs
+When filing bugs it's most often good practice to attach a small sample app (as small, simple and with the fewest lines of code as possible). This app when executed, should show the bug happening.  
+The reason for this is the limited amount of resources and time I have and also because in the process of filing a bug, developers sometimes discover that the bug isn't in the library but somewhere else.   
+Without a small example app the issue might be closed prematurely.
 
 ## Feedback request
 Please send pictures of your application that is using FXSkins, or a site that shows your application. Or share it through Twitter (you can reference

@@ -5,10 +5,26 @@ plugins {
     id 'org.openjfx.javafxplugin' version '0.0.8'
 }
 
+/* ------- */
+
 sourceCompatibility = JavaVersion.VERSION_11
 
 version = '1.0.0'
-def versionDescription = 'FXSkins'
+
+ext {
+    projectDescription = 'A collection of new Skins for existing JavaFX controls. These Skins will add more functionality ' +
+            'to the controls used in your applications with almost no changes to the application’s code.'
+
+    licenseName = 'GNU General Public License, version 2, with the Classpath Exception'
+    licenseURL = 'https://openjdk.java.net/legal/gplv2+ce.html'
+
+    versionControlOriginURL = 'https://github.com/dukke/FXSkins.git'
+    issueTrackerURL = 'https://github.com/dukke/FXSkins/issues'
+
+    projectURL = 'https://pixelduke.com/fxskins/'
+}
+
+/* ------- */
 
 javafx {
     version = "11.0.2"
@@ -117,25 +133,25 @@ def customizePom(pom) {
 
         // add all items necessary for maven central publication
         root.children().last() + {
-            resolveStrategy = Closure.DELEGATE_FIRST
+            resolveStrategy = DELEGATE_FIRST
 
-            description "A collection of new Skins for existing JavaFX controls. These Skins will add more functionality " +
-                    "to the controls used in your applications with almost no changes to the application’s code."
+            description projectDescription
+
             name project.name
-            url 'https://pixelduke.com/fxskins/'
+            url projectURL
             issueManagement {
                 system 'GitHub'
-                url 'https://github.com/dukke/FXSkins/issues'
+                url issueTrackerURL
             }
             licenses {
                 license {
-                    name 'GNU General Public License, version 2, with the Classpath Exception'
-                    url 'https://openjdk.java.net/legal/gplv2+ce.html'
+                    name licenseName
+                    url licenseURL
                     distribution 'repo'
                 }
             }
             scm {
-                url 'https://github.com/dukke/FXSkins.git'
+                url versionControlOriginURL
             }
             developers {
                 developer {
