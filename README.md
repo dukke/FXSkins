@@ -33,7 +33,7 @@ implementation 'com.pixelduke:FXSkins:1.0.0'
 ## Source code
 The FXSkins-samples subproject has samples that you can run and check out how to use FXSkins.
 
-The code is being tested against the latest LTS Java version, which is Java 11.
+The code is being compiled on Java 11 and JavaFX 11. However, it should work on the latest Java and JavaFX version.
 
 ## Pull Requests (PR)
 We welcome contributions via PR.  
