@@ -1,6 +1,6 @@
 # FXSkins
 A collection of new Skins for existing JavaFX controls. These Skins will add more functionality to the controls used in
-your applications with almost no need to make changes to your application's code.
+your applications with practically zero need for code changes.
 
 ![FXSKins Conscious ScrollPane Skin](ScrollPane-Skin.gif)
 
