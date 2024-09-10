@@ -1,10 +1,10 @@
 plugins {
     id 'application'
-    id 'org.openjfx.javafxplugin' version '0.0.8'
+    id 'org.openjfx.javafxplugin' version '0.0.13'
 }
 
 javafx {
-    version = "11.0.2"
+    version = "22"
     modules = [ 'javafx.controls', 'javafx.fxml', 'javafx.swing', 'javafx.web', 'javafx.graphics' ]
 }
 
@@ -29,9 +29,9 @@ application {
 }
 
 dependencies {
-    compile project(':FXSkins')
+    implementation project(':FXSkins')
 
-    compile 'org.controlsfx:controlsfx:11.0.0'
+    implementation 'org.controlsfx:controlsfx:11.0.0'
 
     implementation files('lib/scenicview.jar')
 }

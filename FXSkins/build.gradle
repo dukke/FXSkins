@@ -2,12 +2,10 @@ plugins {
     id 'signing'
     id "java-library"
     id "maven-publish"
-    id 'org.openjfx.javafxplugin' version '0.0.8'
+    id 'org.openjfx.javafxplugin' version '0.1.0'
 }
 
-/* ------- */
-
-sourceCompatibility = JavaVersion.VERSION_11
+sourceCompatibility = JavaVersion.VERSION_17
 
 version = '1.0.0'
 
@@ -27,7 +25,7 @@ ext {
 /* ------- */
 
 javafx {
-    version = "11.0.2"
+    version = "22"
     modules = [ 'javafx.controls' ]
 }
 
@@ -48,27 +46,23 @@ jar {
     }
 }
 
-task javadocJar(type: Jar) {
-    classifier = 'javadoc'
-    from javadoc
-}
-
 javadoc {
     options.addStringOption('javafx', '-quiet')
 }
 
+task javadocJar(type: Jar) {
+    getArchiveClassifier().set('javadoc')
+    from javadoc
+}
+
 task sourceJar(type: Jar) {
     from sourceSets.main.allJava
-    classifier "sources"
+    archiveClassifier.set("sources")
 }
 
 artifacts {
     archives sourceJar
     archives javadocJar
-}
-
-signing {
-    sign configurations.archives
 }
 
 /* Publishing */
@@ -77,49 +71,26 @@ publishing {
     publications {
         mavenJava(MavenPublication) {
             customizePom(pom)
-
             from components.java
-
-            pom.withXml {
-                def pomFile = file("${project.buildDir}/generated-pom.xml")
-                writeTo(pomFile)
-                def pomAscFile = signing.sign(pomFile).signatureFiles[0]
-                artifact(pomAscFile) {
-                    classifier = null
-                    extension = 'pom.asc'
-                }
-            }
-
-            artifact sourceJar {
-                classifier "sources"
-            }
-            artifact javadocJar {
-                classifier "javadoc"
-            }
-
-            // create the signed artifacts
-            project.tasks.signArchives.signatureFiles.each {
-                artifact(it) {
-                    def matcher = it.file =~ /-(sources|javadoc)\.jar\.asc$/
-                    if (matcher.find()) {
-                        classifier = matcher.group(1)
-                    } else {
-                        classifier = null
-                    }
-                    extension = 'jar.asc'
-                }
-            }
+            artifact sourceJar
+            artifact javadocJar
         }
     }
     repositories {
         maven {
-            url "https://oss.sonatype.org/service/local/staging/deploy/maven2"
-            credentials {
-                username System.getenv('MAVEN_USERNAME')
-                password System.getenv('MAVEN_PASSWORD')
+            def releasesRepoUrl = "https://oss.sonatype.org/service/local/staging/deploy/maven2"
+            def snapshotsRepoUrl = "https://oss.sonatype.org/content/repositories/snapshots"
+            url = version.toString().endsWith("SNAPSHOT")? snapshotsRepoUrl : releasesRepoUrl
+            credentials (PasswordCredentials) {
+                username = System.getenv('OSSRH_TOKEN_USERNAME')
+                password = System.getenv('OSSRH_TOKEN_PASSWORD')
             }
         }
     }
+}
+
+signing {
+    sign publishing.publications.mavenJava
 }
 
 def customizePom(pom) {
@@ -133,7 +104,7 @@ def customizePom(pom) {
 
         // add all items necessary for maven central publication
         root.children().last() + {
-            resolveStrategy = DELEGATE_FIRST
+            resolveStrategy = Closure.DELEGATE_FIRST
 
             description projectDescription
 
@@ -159,17 +130,5 @@ def customizePom(pom) {
                 }
             }
         }
-    }
-}
-
-model {
-    tasks.generatePomFileForMavenJavaPublication {
-        destination = file("$buildDir/generated-pom.xml")
-    }
-    tasks.publishMavenJavaPublicationToMavenLocal {
-        dependsOn project.tasks.signArchives
-    }
-    tasks.publishMavenJavaPublicationToMavenRepository {
-        dependsOn project.tasks.signArchives
     }
 }
