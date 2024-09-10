@@ -160,11 +160,13 @@ public class PointsProgressBarSkin extends SkinBase<ProgressBar> {
                 Region dot =  dots.get(i);
                 dot.resize(dot.prefWidth(-1), dot.prefHeight(-1));
                 dot.setLayoutY(0);
+                dot.setLayoutX(-SCREEN_OFFSET);
             }
             // Setup Animation
             indeterminateAnimation = createAnimation();
-            if (previousWidth == -1 || previousHeight == -1 || previousWidth != contentWidth || previousHeight != contentHeight) {
-                indeterminateAnimation.play();
+            if (previousWidth == -1 || previousHeight == -1 || previousWidth != contentWidth || previousHeight != contentHeight
+                || indeterminateAnimation.getStatus() == Animation.Status.STOPPED) {
+                indeterminateAnimation.playFromStart();
             }
             // Set clip
             clip.setLayoutY(contentX);
