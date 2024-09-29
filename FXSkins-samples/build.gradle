@@ -8,24 +8,28 @@ javafx {
     modules = [ 'javafx.controls', 'javafx.fxml', 'javafx.swing', 'javafx.web', 'javafx.graphics' ]
 }
 
+
+
+application {
+    applicationDefaultJvmArgs =  [
+            "--add-opens=javafx.controls/javafx.scene.control.skin=com.pixelduke.fxskins"
+    ]
+
+    mainModule = 'com.pixelduke.samples.fxskins'
+
 //mainClassName = 'com.pixelduke.samples.fxskins/com.pixelduke.samples.control.skin.SliderSample'
 
 //mainClassName = 'com.pixelduke.samples.fxskins/com.pixelduke.samples.control.skin.ButtonSample'
 //mainClassName = 'com.pixelduke.samples.fxskins/com.pixelduke.samples.control.skin.ToggleButtonSample'
 
-//mainClassName = 'com.pixelduke.samples.fxskins/com.pixelduke.samples.control.skin.TextFieldSample'
+    mainClassName = 'com.pixelduke.samples.control.skin.TextFieldSample'
 //mainClassName = 'com.pixelduke.samples.fxskins/com.pixelduke.samples.control.skin.PasswordFieldSample'
 
 //mainClassName = 'com.pixelduke.samples.fxskins/com.pixelduke.samples.control.skin.ToggleSwitchSample'
 
 //mainClassName = 'com.pixelduke.samples.fxskins/com.pixelduke.samples.control.skin.ProgressBarSample'
 
-mainClassName = 'com.pixelduke.samples.fxskins/com.pixelduke.samples.control.skin.ScrollPaneSample'
-
-application {
-    applicationDefaultJvmArgs =  [
-            "--add-opens=javafx.controls/javafx.scene.control.skin=com.pixelduke.fxskins"
-    ]
+//mainClassName = 'com.pixelduke.samples.fxskins/com.pixelduke.samples.control.skin.ScrollPaneSample'
 }
 
 dependencies {
