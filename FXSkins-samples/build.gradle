@@ -35,7 +35,7 @@ application {
 dependencies {
     implementation project(':FXSkins')
 
-    implementation 'org.controlsfx:controlsfx:11.0.0'
+    implementation 'org.controlsfx:controlsfx:11.2.1'
 
     implementation files('lib/scenicview.jar')
 }
