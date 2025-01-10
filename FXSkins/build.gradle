@@ -27,12 +27,13 @@ ext {
 javafx {
     version = "22"
     modules = [ 'javafx.controls' ]
+    configuration = 'compileOnly'
 }
 
 [compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
 
 dependencies {
-    implementation 'org.controlsfx:controlsfx:11.2.1'
+    compileOnly 'org.controlsfx:controlsfx:11.2.1'
 }
 
 repositories {
