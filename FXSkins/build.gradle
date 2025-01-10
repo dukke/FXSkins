@@ -7,7 +7,7 @@ plugins {
 
 sourceCompatibility = JavaVersion.VERSION_21
 
-version = '1.1.0'
+version = '1.1.5'
 
 ext {
     projectDescription = 'A collection of new Skins for existing JavaFX controls. These Skins will add more functionality ' +
